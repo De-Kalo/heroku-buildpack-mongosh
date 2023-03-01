@@ -21,11 +21,11 @@ mongosh_version="1.8.0"
 echo "-----> Downloading and installing mongosh version ${mongosh_version}..."
 
 
-file_name="mongodb-mongosh-${mongosh_version}_linux-x64.tgz"
+file_name="mongosh-${mongosh_version}-linux-x64.tgz"
 folder_name=`echo "$file_name" | sed 's/\.tgz$//'`
-download_url="https://fastdl.mongodb.org/linux/${file_name}"
+download_url="https://downloads.mongodb.com/compass/${file_name}"
 
-curl $download_url -s -o - | tar xzf - -C /tmp
+curl $download_url -s -o - | tar xvzf - -C /tmp
 
 # Move mongodb binaries into the app directory
 mv "/tmp/${folder_name}"/* $heroku_dir/mongo
