@@ -31,4 +31,3 @@ curl $download_url -s -o - | tar xvzf - -C /tmp
 mv "/tmp/${folder_name}"/* $heroku_dir/mongo
 chmod +x $heroku_dir/mongo/bin/*
 
-sudo ln -s $heroku_dir/mongo/bin/* /usr/local/bin/
