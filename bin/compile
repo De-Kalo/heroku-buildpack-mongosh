@@ -31,3 +31,11 @@ curl $download_url -s -o - | tar xvzf - -C /tmp
 mv "/tmp/${folder_name}"/* $heroku_dir/mongo
 chmod +x $heroku_dir/mongo/bin/*
 
+
+
+
+
+# Setting environment variables in .profile.d script (sourced at dyno startup)
+build=$(cd "$build_dir/" && pwd)
+mkdir -p $build/.profile.d
+echo 'export PATH="~/.heroku/mongo/bin:$PATH"' > $build/.profile.d/mongo.sh
